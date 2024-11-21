@@ -24,7 +24,7 @@ export default function DashboardLayout({
               <Navbar />
               {children}
             </div>
-            <div className="left w-1/6 md:w-[8%] lg:w-1/6 xl:w-[14%]  p-4">
+            <div className="left w-1/6 md:w-[8%] lg:w-1/6 xl:w-[14%]  p-0 border-l-2">
               <Link
                 href={"/"}
                 className=" flex items-center justify-center lg:justify-start gap-2"

@@ -14,10 +14,10 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className=" mt-4 text-sm">
+      <div className=" md:border-t-2  mt-11 text-sm  p-4">
         {sidebarItems.map((t, i) => {
           return (
-            <div key={i} className=" flex flex-col gap-2">
+            <div key={i} className=" flex flex-col gap-2 ">
               <span className=" hidden lg:block text-gray-400 font-light my-4">
                 {t.title}
               </span>
@@ -52,7 +52,7 @@ const sidebarItems = [
       {
         icon: <HomeIcon />,
         label: "Home",
-        link: "/",
+        link: "/admin",
       },
       {
         icon: <GroupIcon />,
