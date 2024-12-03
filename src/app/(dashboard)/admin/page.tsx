@@ -1,6 +1,7 @@
 import CustomizedLabelLineChart from "@/components/charts/CustomizedLabelLineChart";
 import CustomShapeBarChart from "@/components/charts/CustomShapeBarChart";
 import CustomRadialBarChart from "@/components/charts/RadialBarChart";
+import Announcements from "@/components/dashboard/Announcements";
 import EventCalendar from "@/components/dashboard/EventCalendar";
 import UserCard from "@/components/dashboard/UserCard";
 import React from "react";
@@ -35,8 +36,9 @@ const page = () => {
           <div className=""></div>
         </div>
         {/* Right */}
-        <div className=" w-full lg:w-1/3 flex flex-col gap-8">
+        <div className=" w-full lg:w-1/3 h-max  flex flex-col gap-8">
           <EventCalendar />
+          <Announcements />
         </div>
       </div>
     </>
