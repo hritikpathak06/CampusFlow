@@ -24,3 +24,22 @@ body {
   width: 100% !important;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.rbc-btn-group:first-child{
+  display: none !important;
+}
+
+.rbc-toolbar-label{
+  text-align: right !important;
+  padding: 0px 20px !important;
+}
+
+.rbc-btn-group:last-child{
+  font-size: 13px;
+}
+
+.rbc-btn-group:last-child button{
+  border: none !important;
+  background-color: #f1f0ff !important;
+  margin-left: 10px;
+}
