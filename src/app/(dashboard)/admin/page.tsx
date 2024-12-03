@@ -35,10 +35,8 @@ const page = () => {
           <div className=""></div>
         </div>
         {/* Right */}
-        <div className=" w-full lg:w-1/3">
-          <div className=" bg-white p-3 h-[450px]">
-            <EventCalendar />
-          </div>
+        <div className=" w-full lg:w-1/3 flex flex-col gap-8">
+          <EventCalendar />
         </div>
       </div>
     </>
