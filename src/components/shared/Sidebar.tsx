@@ -18,7 +18,7 @@ const Sidebar = () => {
         {sidebarItems.map((t, i) => {
           return (
             <div key={i} className=" flex flex-col gap-2 ">
-              <span className=" hidden lg:block text-gray-400 font-light my-4">
+              <span className=" hidden lg:block text-gray-400 font-light mb-4">
                 {t.title}
               </span>
               {t.items.map((item, i) => {
