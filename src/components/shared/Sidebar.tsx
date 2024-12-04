@@ -4,6 +4,8 @@ import {
   GroupIcon,
   HomeIcon,
   PersonStanding,
+  PersonStandingIcon,
+  Users2,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -63,6 +65,11 @@ const sidebarItems = [
         icon: <PersonStanding />,
         label: "Student",
         link: "/student",
+      },
+      {
+        icon: <Users2 />,
+        label: "Parent",
+        link: "/parent",
       },
       {
         icon: <ClipboardList />,

@@ -14,6 +14,12 @@ const myEventsList = [
     description: "Discuss project milestones.",
   },
   {
+    title: "Meeting with Team",
+    start: new Date(2024, 11, 3, 13, 0),
+    end: new Date(2024, 11, 3, 14, 0),
+    description: "Discuss project milestones.",
+  },
+  {
     title: "Lunch Break",
     start: new Date(2024, 11, 3, 13, 0), // December 3, 2024, 1:00 PM
     end: new Date(2024, 11, 3, 14, 0), // December 3, 2024, 2:00 PM
