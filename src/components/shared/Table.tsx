@@ -6,22 +6,10 @@ interface ColumnTypes {
   className?: string;
 }
 
-interface DataTypes {
-  id: string | number;
-  teacherId: string;
-  name: string;
-  email?: string;
-  photo: string;
-  phone?: string;
-  subjects?: string[];
-  classes?: string[];
-  address?: string;
-}
-
 interface TableProps {
   columns: ColumnTypes[];
   renderRow: (item: any) => any;
-  data: DataTypes[];
+  data: any[];
 }
 
 const Table: React.FC<TableProps> = ({ columns, renderRow, data }) => {

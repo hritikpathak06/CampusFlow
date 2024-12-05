@@ -69,7 +69,7 @@ const columns: ColumnTypes[] = [
 
 const renderRow = (item: Teacher) => {
   return (
-    <tr>
+    <tr className="">
       <td className=" flex items-center gap-2">
         <Image
           src={item.photo}
