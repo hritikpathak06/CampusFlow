@@ -1,8 +1,108 @@
 import SaerchBar from "@/components/shared/SaerchBar";
 import Table from "@/components/shared/Table";
 import TablePagination from "@/components/shared/TablePagination";
-import {  FilterIcon, PlusIcon, SortAscIcon } from "lucide-react";
+import { teachersData } from "@/lib/dummyData";
+import {
+  DeleteIcon,
+  FilterIcon,
+  PlusIcon,
+  SortAscIcon,
+  ViewIcon,
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+
+interface ColumnTypes {
+  header: string;
+  accessor: string;
+  className?: string;
+}
+
+interface Teacher {
+  id: string | number;
+  teacherId: string;
+  name: string;
+  email?: string;
+  photo: string;
+  phone?: string;
+  subjects?: string[];
+  classes?: string[];
+  address?: string;
+}
+
+const columns: ColumnTypes[] = [
+  {
+    header: "Info",
+    accessor: "info",
+  },
+  {
+    header: "Teacher Id",
+    accessor: "teacherId",
+    className: "hidden md:table-cell",
+  },
+  {
+    header: "Subjects",
+    accessor: "subjects",
+    className: "hidden md:table-cell",
+  },
+  {
+    header: "Classes",
+    accessor: "classes",
+    className: "hidden md:table-cell",
+  },
+  {
+    header: "Phone",
+    accessor: "phone",
+    className: "hidden lg:table-cell",
+  },
+  {
+    header: "Address",
+    accessor: "address",
+    className: "hidden lg:table-cell",
+  },
+  {
+    header: "Actions",
+    accessor: "action",
+  },
+];
+
+const renderRow = (item: Teacher) => {
+  return (
+    <tr>
+      <td className=" flex items-center gap-2">
+        <Image
+          src={item.photo}
+          width={40}
+          height={40}
+          alt={item.name}
+          className="md:hidden xl:block w-10 h-10 rounded-full object-cover"
+        />
+        <div className=" flex flex-col">
+          <h3 className=" font-semibold">{item.name}</h3>
+          <p className=" text-sm text-gray-500">{item.email}</p>
+        </div>
+      </td>
+      <td className="hidden md:table-cell">{item.teacherId}</td>
+      <td className="hidden md:table-cell">{item.subjects?.join(",")}</td>
+      <td className="hidden md:table-cell">{item.classes?.join(",")}</td>
+      <td className="hidden md:table-cell">{item.phone}</td>
+      <td className="hidden md:table-cell">{item.address}</td>
+      <td className="hidden md:table-cell">{item.address}</td>
+      <td className=" flex items-center gap-4">
+        <Link
+          href={`/list/teachers/${item.id}`}
+          className=" p-2 flex items-center justify-center rounded-full bg-sky-300"
+        >
+          <ViewIcon className="h-5 w-5" />
+        </Link>
+        <button className=" p-2  flex items-center justify-center rounded-full bg-yellow-200">
+          <DeleteIcon className="h-5 w-5" />
+        </button>
+      </td>
+    </tr>
+  );
+};
 
 const page = () => {
   return (
@@ -27,11 +127,11 @@ const page = () => {
       </div>
       {/* List */}
       <div>
-        <Table/>
+        <Table columns={columns} renderRow={renderRow} data={teachersData} />
       </div>
       {/* Pagination */}
       <div>
-        <TablePagination/>
+        <TablePagination />
       </div>
     </div>
   );
