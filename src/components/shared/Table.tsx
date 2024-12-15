@@ -15,9 +15,9 @@ interface TableProps {
 const Table: React.FC<TableProps> = ({ columns, renderRow, data }) => {
   return (
     <>
-      <table className=" w-full mt-4">
+      <table className=" w-full mt-4 ">
         <thead>
-          <tr className=" text-left text-gray-600 text-sm">
+          <tr className="  text-left text-gray-600 text-sm">
             {columns.map((col, idx) => {
               return <th key={idx}>{col.header}</th>;
             })}

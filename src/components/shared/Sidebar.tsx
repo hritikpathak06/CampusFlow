@@ -3,6 +3,7 @@ import {
   ClipboardList,
   GroupIcon,
   HomeIcon,
+  LucideSunSnow,
   PersonStanding,
   PersonStandingIcon,
   Users2,
@@ -74,7 +75,12 @@ const sidebarItems = [
       {
         icon: <ClipboardList />,
         label: "Classes",
-        link: "/classes",
+        link: "/list/classes",
+      },
+      {
+        icon: <LucideSunSnow />,
+        label: "Lessons",
+        link: "/list/lessons",
       },
     ],
   },

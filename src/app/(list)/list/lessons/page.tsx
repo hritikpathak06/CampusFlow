@@ -1,7 +1,7 @@
 import SaerchBar from "@/components/shared/SaerchBar";
 import Table from "@/components/shared/Table";
 import TablePagination from "@/components/shared/TablePagination";
-import { parentsData } from "@/lib/dummyData";
+import { parentsData, subjectsData } from "@/lib/dummyData";
 import {
   DeleteIcon,
   FilterIcon,
@@ -19,39 +19,32 @@ interface ColumnTypes {
   className?: string;
 }
 
-interface Parents {
-  id: string | number; // Unique identifier for the teacher
-  name: string; // Teacher's name
-  students: string[]; // List of student names
-  email: string; // Teacher's email address
-  phone: string; // Teacher's phone number
-  address: string; // Teacher's address
+interface Lessons {
+  id: string | number;
+  name: string;
+  teachers: string[];
 }
 const parentsColumns: ColumnTypes[] = [
-  { header: "Name", accessor: "name" },
-  { header: "Students", accessor: "students" },
-  { header: "Email", accessor: "email" },
-  { header: "Phone", accessor: "phone", className: "hidden md:table-cell" },
-  { header: "Address", accessor: "address", className: "hidden lg:table-cell" },
+  { header: "Teacher Id", accessor: "teacherid" },
+  { header: "Subject Name", accessor: "teacher_name" },
+  { header: "Teachers", accessor: "teachers" },
   {
     header: "Actions",
     accessor: "action",
   },
 ];
 
-const renderParentsRow = (item: Parents) => (
+const renderParentsRow = (item: Lessons) => (
   <>
     <tr className=" border-b border-gray-200">
       <td className="flex items-center gap-2">
         <div className="flex flex-col">
-          <h3 className="font-semibold">{item.name}</h3>
-          <p className="text-sm text-gray-500">{item.email}</p>
+          <h3 className="font-semibold">{item.id}</h3>
         </div>
       </td>
-      <td className="hidden md:table-cell">{item.students.join(",")}</td>
-      <td className="hidden md:table-cell">{item.email}</td>
-      <td className="hidden md:table-cell">{item.phone}</td>
-      <td className="hidden md:table-cell">{item.address}</td>
+      <td className="hidden md:table-cell">{item.name}</td>
+      <td className="hidden md:table-cell">{item.teachers.join(",")}</td>
+
       <td className="flex items-center gap-4">
         <Link
           href={`/list/students/${item.id}`}
@@ -72,7 +65,7 @@ const page = () => {
     <div className="bg-white p-4 rounded-md flex-1 m-4 mt-0">
       {/* Top */}
       <div className=" flex justify-between">
-        <h1 className=" text-lg font-semibold hidden md:block">All Parents</h1>
+        <h1 className=" text-lg font-semibold hidden md:block">All Lessons</h1>
         <div className=" flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
           <SaerchBar />
           <div className=" flex items-center gap-4 self-end">
@@ -93,7 +86,7 @@ const page = () => {
         <Table
           columns={parentsColumns}
           renderRow={renderParentsRow}
-          data={parentsData}
+          data={subjectsData}
         />
       </div>
       {/* Pagination */}

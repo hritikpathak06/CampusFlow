@@ -1,7 +1,7 @@
 import SaerchBar from "@/components/shared/SaerchBar";
 import Table from "@/components/shared/Table";
 import TablePagination from "@/components/shared/TablePagination";
-import { parentsData } from "@/lib/dummyData";
+import { classesData } from "@/lib/dummyData";
 import {
   DeleteIcon,
   FilterIcon,
@@ -9,7 +9,6 @@ import {
   SortAscIcon,
   ViewIcon,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -19,39 +18,37 @@ interface ColumnTypes {
   className?: string;
 }
 
-interface Parents {
-  id: string | number; // Unique identifier for the teacher
-  name: string; // Teacher's name
-  students: string[]; // List of student names
-  email: string; // Teacher's email address
-  phone: string; // Teacher's phone number
-  address: string; // Teacher's address
+interface Classes {
+  id: string | number;
+  name: string;
+  capacity: number;
+  grade: number;
+  supervisor: string;
 }
 const parentsColumns: ColumnTypes[] = [
-  { header: "Name", accessor: "name" },
-  { header: "Students", accessor: "students" },
-  { header: "Email", accessor: "email" },
-  { header: "Phone", accessor: "phone", className: "hidden md:table-cell" },
-  { header: "Address", accessor: "address", className: "hidden lg:table-cell" },
+  { header: "Class Name", accessor: "name" },
+  { header: "Capacity", accessor: "capacity" },
+  { header: "Grade", accessor: "grade" },
   {
-    header: "Actions",
-    accessor: "action",
+    header: "Supervisor",
+    accessor: "supervisor",
+    className: "hidden md:table-cell",
   },
+  { header: "Actions", accessor: "actions", className: "hidden lg:table-cell" },
 ];
 
-const renderParentsRow = (item: Parents) => (
+const renderParentsRow = (item: Classes) => (
   <>
     <tr className=" border-b border-gray-200">
       <td className="flex items-center gap-2">
         <div className="flex flex-col">
           <h3 className="font-semibold">{item.name}</h3>
-          <p className="text-sm text-gray-500">{item.email}</p>
+          <p className="text-sm text-gray-500">{item.id}</p>
         </div>
       </td>
-      <td className="hidden md:table-cell">{item.students.join(",")}</td>
-      <td className="hidden md:table-cell">{item.email}</td>
-      <td className="hidden md:table-cell">{item.phone}</td>
-      <td className="hidden md:table-cell">{item.address}</td>
+      <td className="hidden md:table-cell">{item.capacity}</td>
+      <td className="hidden md:table-cell">{item.grade}</td>
+      <td className="hidden md:table-cell">{item.supervisor}</td>
       <td className="flex items-center gap-4">
         <Link
           href={`/list/students/${item.id}`}
@@ -70,9 +67,8 @@ const renderParentsRow = (item: Parents) => (
 const page = () => {
   return (
     <div className="bg-white p-4 rounded-md flex-1 m-4 mt-0">
-      {/* Top */}
       <div className=" flex justify-between">
-        <h1 className=" text-lg font-semibold hidden md:block">All Parents</h1>
+        <h1 className=" text-lg font-semibold hidden md:block">All Classes</h1>
         <div className=" flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
           <SaerchBar />
           <div className=" flex items-center gap-4 self-end">
@@ -88,15 +84,13 @@ const page = () => {
           </div>
         </div>
       </div>
-      {/* List */}
       <div>
         <Table
           columns={parentsColumns}
           renderRow={renderParentsRow}
-          data={parentsData}
+          data={classesData}
         />
       </div>
-      {/* Pagination */}
       <div>
         <TablePagination />
       </div>
