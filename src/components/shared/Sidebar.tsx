@@ -1,12 +1,15 @@
 "use client";
 import {
+  AsteriskIcon,
+  CandyCane,
   ClipboardList,
   GroupIcon,
   HomeIcon,
   LucideSunSnow,
   PersonStanding,
-  PersonStandingIcon,
+  TestTube,
   Users2,
+  VoteIcon,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -81,6 +84,26 @@ const sidebarItems = [
         icon: <LucideSunSnow />,
         label: "Lessons",
         link: "/list/lessons",
+      },
+      {
+        icon: <AsteriskIcon />,
+        label: "Assignments",
+        link: "/list/assignments",
+      },
+      {
+        icon: <TestTube />,
+        label: "Results",
+        link: "/list/result",
+      },
+      {
+        icon: <CandyCane />,
+        label: "Events",
+        link: "/list/events",
+      },
+      {
+        icon: <VoteIcon />,
+        label: "Announcements",
+        link: "/list/announcements",
       },
     ],
   },
