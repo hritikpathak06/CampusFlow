@@ -1,3 +1,4 @@
+import FormModal from "@/components/mutations/FormModal";
 import SaerchBar from "@/components/shared/SaerchBar";
 import Table from "@/components/shared/Table";
 import TablePagination from "@/components/shared/TablePagination";
@@ -5,9 +6,7 @@ import { teachersData } from "@/lib/dummyData";
 import {
   DeleteIcon,
   FilterIcon,
-  PlusIcon,
   SortAscIcon,
-  ViewIcon,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -93,10 +92,10 @@ const renderRow = (item: Teacher) => {
           href={`/list/teachers/${item.id}`}
           className=" p-2 flex items-center justify-center rounded-full bg-sky-300"
         >
-          <ViewIcon className="h-5 w-5" />
+          <FormModal type="edit" table="teachers" />
         </Link>
         <button className=" p-2  flex items-center justify-center rounded-full bg-yellow-200">
-          <DeleteIcon className="h-5 w-5" />
+        <FormModal type="delete" table="teachers" />
         </button>
       </td>
     </tr>
@@ -118,9 +117,7 @@ const page = () => {
             <button className=" w-8 h-8 flex items-center justify-center rounded-full bg-yellow-300">
               <SortAscIcon className="h-4 w-4" />
             </button>
-            <button className=" w-8 h-8 flex items-center justify-center rounded-full bg-yellow-300">
-              <PlusIcon className="h-4 w-4" />
-            </button>
+            <FormModal type="create" table="teachers" />
           </div>
         </div>
       </div>
