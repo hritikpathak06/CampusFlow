@@ -1,6 +1,7 @@
 "use client";
 import { DeleteIcon, Edit2Icon, PlusIcon } from "lucide-react";
 import React, { useState } from "react";
+import TeacherForm from "../forms/TeacherForm";
 
 type TableType =
   | "teachers"
@@ -44,7 +45,7 @@ const FormModal = ({ table, type, data, id }: FormModalTypes) => {
             </button>
           </form>
         ) : (
-          "Create or update form"
+         <TeacherForm type="create"/>
         )}
       </>
     );
