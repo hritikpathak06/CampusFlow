@@ -70,11 +70,11 @@ const FormModal = ({ table, type, data, id }: FormModalTypes) => {
       {open && (
         <div
           className=" w-screen h-screen absolute left-0 top-0 bg-black bg-opacity-80 z-50 flex items-center justify-center"
-          onClick={() => setOpen(!open)}
+          // onClick={() => setOpen(!open)}
         >
           <div
             className=" bg-white p-4 rounded-md relative w-[90%] md:w-[70%] lg:w-[60%]"
-            onClick={(e) => e.stopPropagation()}
+            // onClick={(e) => e.stopPropagation()}
           >
             <Form />
             <div className=" absolute top-0 right-0">
